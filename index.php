@@ -49,12 +49,12 @@
         </div>
     </div>
 
-    <div class="form-group">
+ <!--    <div class="form-group">
       <label for="inputfile" class="col-sm-2 control-label">Resume:</label>
         <div class="col-sm-10">
           <input type="file" id="file" name="file">
         </div>
-    </div>
+    </div> -->
 
  <div class="form-group">
       <label for="submit" class="col-sm-2 control-label"></label>

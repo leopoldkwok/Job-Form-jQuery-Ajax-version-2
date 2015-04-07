@@ -13,10 +13,22 @@
 //     }
 
 //     else {
-
 //       return true;
 //     }
 //  } 
+
+  // define variables and initialize with empty values
+  $firstname = ""; // Sender Name
+  $lastname = ""; // Lastname
+  $email = ""; 
+  $phone_number = '';
+  $message = '';
+  $firstnameError = "";
+  $lastnameError = "";
+  $emailError = "";
+  $phonenumberError="";
+  $fileError ="";
+  $errors = 0;
   
 
   $firstname=$_POST["firstname"];
@@ -27,8 +39,10 @@
 
 
   //storing file in filename variable
-  $fileName = $_FILES['file']['name'];
+  // $fileName = $_FILES['file']['name'];
 
+
+  //validation
 if(empty($firstname) || empty($lastname) || empty($email) || empty($phonenumber))
   {
     echo "These fields are mandatory - from PHP!";
@@ -48,11 +62,15 @@ if(empty($firstname) || empty($lastname) || empty($email) || empty($phonenumber)
 
 
   //destination directory
-  $to="resume/".$fileName; // make sure you create this folder
+ // $to="resume/".$fileName; // make sure you create this folder
 
-  move_uploaded_file($_FILES['file']['tmp_name'],$to); //Moves an uploaded file to a new location
+ // move_uploaded_file($_FILES['file']['tmp_name'],$to); //Moves an uploaded file to a new location
 
-  $query=mysql_query("INSERT INTO common(firstname,lastname, email, phonenumber, message, destination) values('$firstname','$lastname','$email','$phonenumber', '$message', '$to') ");
+  $query=mysql_query("INSERT INTO common(firstname,lastname, email, phonenumber, message) values('$firstname','$lastname','$email','$phonenumber', '$message') ");
+
+// removed file upload for the time being
+//, destination
+// , '$to'
 
   if($query){
     echo "Success! Your details was successfully added! Thank you for sending your details.";
