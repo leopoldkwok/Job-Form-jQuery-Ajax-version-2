@@ -43,11 +43,14 @@ if(window.FormData !== undefined)
     }
    return false;
 });
-$("#multi-post").click(function()
-    {
-    //sending form from here
-    $("#multiform").submit();
-});
+
+// This stops it from working properly
+
+// $("#multi-post").click(function()
+//     {
+//     //sending form from here
+//     $("#multiform").submit();
+// });
 
 });
 

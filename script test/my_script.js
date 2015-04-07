@@ -1,3 +1,4 @@
+// <script type="text/javascript">
 $(document).ready(function(){
 
 // collect all the data on the form by programming a custom submit function for the form
@@ -10,8 +11,8 @@ $("#multiform").submit(function(e) {
     var message = $("#message").val();
 
 
-    // if the firstname input or lastname or email or phone number or no file upload then display a message and do not submit anything
-    if($("#firstname").val() == "" || $("#lastname").val() == "" || $("#email").val() == "" || $("#phonenumber").val() == "")
+    if the firstname input or lastname or email or phone number or no file upload then display a message and do not submit anything
+    if($("#firstname").val() == "" || $("#lastname").val() == "" || $("#email").val() == "" || $("#phonenumber").val() == "" || $("#file").val() == "")
         $("#multi-msg").html("There are mandatory field(s) that you have missed out -- Please enter");
     else {
 
@@ -28,7 +29,7 @@ $.ajax({
         },
         success:function(data, textStatus, jqXHR) 
         {
-            alert("success");
+            //data: return data from server
         },
         error: function(jqXHR, textStatus, errorThrown) 
         {
@@ -95,7 +96,14 @@ $.ajax({
 
 });
 
-});
+// $("#multi-post").click(function()
+//     {
+//     //sending form from here
+//     $("#multiform").submit();
+// });
 
+// });
 
+// add a clear function
 
+// </script>
