@@ -10,92 +10,43 @@ $("#multiform").submit(function(e) {
     var message = $("#message").val();
 
 
+    var collection = {
+        
+            firstname: firstname,
+            lastname: lastname,
+            email: email,
+            phonenumber: phonenumber,
+            message: message
+        }
+
+
     // if the firstname input or lastname or email or phone number or no file upload then display a message and do not submit anything
     if($("#firstname").val() == "" || $("#lastname").val() == "" || $("#email").val() == "" || $("#phonenumber").val() == "")
         $("#multi-msg").html("There are mandatory field(s) that you have missed out -- Please enter");
     else {
 
+      // console.log(collection);
 
-$.ajax({
-    method: "POST",
-    url: "process.php",
-    data: {
-            name: firstname,
-            lastname: lastname,
-            email: email,
-            phonenumber: phonenumber,
-            message: message
-        },
-        success:function(data, textStatus, jqXHR) 
-        {
-            alert("success");
-        },
-        error: function(jqXHR, textStatus, errorThrown) 
-        {
-            //if fails  
-        }
-    });
-//     success: function(data) {
-//         alert(data);
-//     },
-//     error : function(err, req) {
-//         alert("Your browser broke!");
-//     }
-// });
+    $.ajax({
+        method: "POST",
+        url: "process.php",
+        data: collection,
 
-
-    // success: function(data, textStatus, jqXHR)
-    //          {
-    //             $("#multi-msg").html('<pre><code>'+data+'</code></pre>');
-    //          },
-    //          error: function(jqXHR, textStatus, errorThrown) 
-    //          {
-    //             $("#multi-msg").html('<pre><code class="prettyprint">AJAX Request Failed<br/> textStatus='+textStatus+', errorThrown='+errorThrown+'</code></pre>');
-    //          }           
-
-    //     });
-
-
-
-
-//     var formObj = $(this);
-// console.log();
-//     var formURL = formObj.attr("action");
-
-// if(window.FormData !== undefined)  
-   
-
-   //  {
-   //      var formData = new FormData(this);
-   //      $.ajax({
-   //          url: formURL, //formURL
-   //          type: 'POST',
-   //          data:  formData,
-   //          mimeType:"multipart/form-data",
-   //          contentType: false,
-   //          cache: false,
-   //          processData:false,
-   //          success: function(data, textStatus, jqXHR)
-   //          {
-   //                  $("#multi-msg").html('<pre><code>'+data+'</code></pre>');
-   //          },
-   //          error: function(jqXHR, textStatus, errorThrown) 
-   //          {
-   //              $("#multi-msg").html('<pre><code class="prettyprint">AJAX Request Failed<br/> textStatus='+textStatus+', errorThrown='+errorThrown+'</code></pre>');
-   //          }           
-   //     });
-   //      e.preventDefault();
-   //     $(this).unbind(e);
-   //      // e.unbind();
-   // }
+            success:function(data, textStatus, jqXHR) 
+            {
+       
+                $("#multi-msg").html(data);
+            },
+            error: function(jqXHR, textStatus, errorThrown) 
+            {
+                //if fails  
+            }
+        });
         
-    }
+      }
 
    return false;
 
-});
+  });
 
 });
-
-
-

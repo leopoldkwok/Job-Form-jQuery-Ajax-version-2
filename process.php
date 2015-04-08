@@ -6,6 +6,12 @@
   mysql_connect("localhost","root","");
   mysql_select_db("test1_ajax");
 
+ // echo ("hi");
+
+
+ // var_dump($_POST);
+
+ //  exit();
 // validate_email($email) {
 //     if (empty($email) ||  !filter_var($email, FILTER_VALIDATE_EMAIL) === false) 
 //       {
@@ -38,6 +44,8 @@
   $message=$_POST["message"];
 
 
+
+
   //storing file in filename variable
   // $fileName = $_FILES['file']['name'];
 
@@ -62,9 +70,8 @@ if(empty($firstname) || empty($lastname) || empty($email) || empty($phonenumber)
 
 
   //destination directory
- // $to="resume/".$fileName; // make sure you create this folder
-
- // move_uploaded_file($_FILES['file']['tmp_name'],$to); //Moves an uploaded file to a new location
+  // $to="resume/".$fileName; // make sure you create this folder
+  // move_uploaded_file($_FILES['file']['tmp_name'],$to); //Moves an uploaded file to a new location
 
   $query=mysql_query("INSERT INTO common(firstname,lastname, email, phonenumber, message) values('$firstname','$lastname','$email','$phonenumber', '$message') ");
 
